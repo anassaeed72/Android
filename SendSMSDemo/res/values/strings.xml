@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Num_Val</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="send_sms_label">Send Messages</string>
+    <string name="content_sms_sent">content://sms/sent</string>
+    <string name="writeFileLabel">Write File</string>
+    <string name="genNumLabel">Number Generator</string>
+    
+    
+</resources>

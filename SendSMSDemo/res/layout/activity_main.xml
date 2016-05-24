@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical" >
+
+
+   <Button android:id="@+id/btnSendSMS"
+   android:layout_width="fill_parent"
+	android:layout_height="175dp"
+   android:text="@string/send_sms_label"/>
+
+	<Button android:id="@+id/btnWriteFile"
+ 	  android:layout_width="fill_parent"
+	android:layout_height="175dp"
+   	android:text="@string/writeFileLabel"/>
+	
+	<Button android:id="@+id/btnNumGen"
+   	android:layout_width="fill_parent"
+   	android:text="@string/genNumLabel"
+   	android:layout_height="175dp"/>
+    </LinearLayout>
+    
