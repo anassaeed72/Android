@@ -1,0 +1,6 @@
+1452980553893	Rename method 'writeAllLogs'
+1452980578519	Rename field 'allCallsFile'
+1452980594788	Rename field 'allCallsOutputStream'
+1452980607248	Rename field 'allCallsOutputStreamWriter'
+1452980776387	Rename method 'allCallsIntialize'
+1452980792771	Rename method 'allCallsDeIntialize'

@@ -1,0 +1,126 @@
+package com.anassaeed.bluetooth;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
+
+public class ReadAndWrite extends Activity {
+	public static final String tag = "BluetoothApp";
+	MediaPlayer mySound = null;
+
+	   @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	        ReadAndWrite.this.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+	        mySound =null;// MediaPlayer.create(ReadAndWrite.this, R.raw.thunder );
+	        Log.i(tag, "Read and write called");
+	       try{
+	        Thread thread = new Thread(){
+	        	@Override
+	        	public void run(){
+	        		readFromStream(true);
+	        	}
+	        };
+//	        playSound();
+	        thread.start();
+	        } catch(Exception e){
+	        	e.printStackTrace();
+	        }
+	    }
+	    @Override
+	    public boolean onCreateOptionsMenu(Menu menu) {
+	        // Inflate the menu; this adds items to the action bar if it is present.
+	        getMenuInflater().inflate(R.menu.main, menu);
+	        return true;
+	    }
+	    @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	        // Handle action bar item clicks here. The action bar will
+	        // automatically handle clicks on the Home/Up button, so long
+	        // as you specify a parent activity in AndroidManifest.xml.
+	        int id = item.getItemId();
+	        if (id == R.id.action_settings) {
+	            return true;
+	        }
+	        return super.onOptionsItemSelected(item);
+	    }
+	 public int readFromStream(boolean infinite){  	
+	    	int readMessage = 0;
+	    	byte[] buffer = new byte[1024];
+	    	while(infinite){
+	    		try {
+	    			// Read from the InputStream
+	    			readMessage =  MainActivity.inputStream.read(buffer);
+	    			if ( readMessage == 1){
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 2 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 3 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 4 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 5 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 6 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 7 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 8 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 9 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}	else if ( readMessage == 10 ) {
+	    				makeAlert("Alert","Child is not on seat");
+	    				playSound();
+	    			}
+	    			Log.i(tag, "Data read form bluetooth Stream" + readMessage);
+	    		} catch (IOException e) {
+	    			e.printStackTrace();
+	    			Toast.makeText(ReadAndWrite.this,"The connection was lost please try again",Toast.LENGTH_SHORT).show();
+	    			break;
+	    		}
+	    	}
+	    	return readMessage;
+	    }
+	 public void makeAlert(String title,String text){
+		 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ReadAndWrite.this);
+
+	        alertDialogBuilder.setTitle(title)
+				.setMessage(text)
+				.setCancelable(false)				
+				.setNegativeButton("Exit",new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog,int id) {
+						dialog.cancel();
+				}
+				}); 
+			// create alert dialog
+			AlertDialog alertDialog = alertDialogBuilder.create();
+			alertDialog.show();
+	 }
+	 void playSound(){
+		 playSound();
+	 }
+	 void stopPlayingSound(){
+		mySound.stop();
+	 }
+}

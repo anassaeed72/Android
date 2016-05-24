@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;radar1.gif&apos; to &apos;assets&apos;&#x0A;- Original project: &apos;Test1&apos;&#x0A;- Destination element: &apos;assets&apos;&#x0A;- Original element: &apos;radar1.gif&apos;" description="Copy file" element1="assets/radar1.gif" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1417352314811" target="/Bluetooth/assets" units="0" version="1.0"/>
+</session>

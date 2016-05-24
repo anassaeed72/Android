@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Calculator</string>
+    <string name="Value1">Value1!</string>
+    <string name="Value2">Value2!</string>
+    <string name="action_settings">Settings</string>
+    <string name="calcLabel">Calculate</string>
+    
+    
+</resources>

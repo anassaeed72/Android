@@ -1,0 +1,124 @@
+package com.anassaeed.messagewriter;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+	private Button button;
+	private String tag = "MessageWriter";
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		Log.i(tag, "On create");
+		button = (Button) findViewById(R.id.btnWrite);
+		button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Log.i(tag, "Button clicked");
+				File folder = new File(Environment.getExternalStorageDirectory(), "Messages");
+			    if (!folder.exists()) {
+			        folder.mkdir();
+			    }
+				
+			    File allMessagesFile = new File(folder+ "numbers.txt");
+			    try {
+					allMessagesFile.createNewFile();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    FileOutputStream allMessagesOutputStream;
+			    try {
+					allMessagesOutputStream = new FileOutputStream(allMessagesFile);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			    
+			    // for reading the messages and then writing them in the file
+			    
+			   
+			      Uri uri = Uri.parse("content://sms/inbox");
+			      Cursor c= getContentResolver().query(uri, null, null ,null,null);
+			      startManagingCursor(c);
+			        
+			       // Read the sms data and store it in the list
+			       if(c.moveToFirst()) {
+			           for(int i=0; i < 1; i++) {
+			        	   try{
+			        		   Log.i(tag,(c.getString(c.getColumnIndexOrThrow("date")).toString()));
+			        		   try{
+				        		   Log.i(tag,(c.getString(c.getColumnIndexOrThrow("person")).toString()));
+				        		   String contactID = c.getString(c.getColumnIndexOrThrow("person")).toString();
+			        			   String whereName = ContactsContract.Data.MIMETYPE + " = ? AND " + ContactsContract.CommonDataKinds.StructuredName.CONTACT_ID + " = ?";
+			        			   String[] whereNameParams = new String[] { ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE, contactID };
+			        			 
+			        			   Cursor nameCur = getContentResolver().query(ContactsContract.Data.CONTENT_URI, null, whereName, whereNameParams, ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME);
+			        			   while (nameCur.moveToNext()) {
+			        			       String given = nameCur.getString(nameCur.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.GIVEN_NAME));
+			        			       String family = nameCur.getString(nameCur.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.FAMILY_NAME));
+			        			       String display = nameCur.getString(nameCur.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME));
+			        			       Log.i(tag, given);
+
+			        			       
+			        			   }
+			        			   nameCur.close();
+			        		   }catch (Exception e) {
+			        			   e.printStackTrace();
+			        		   }
+			        		   Log.i(tag,(c.getString(c.getColumnIndexOrThrow("body")).toString()));
+			        		   Log.i(tag,(c.getString(c.getColumnIndexOrThrow("address")).toString()));
+			        	   } catch (Exception e) {
+			        		   e.printStackTrace();
+			        	   }
+//			               smsList.add(sms);
+			                
+			               c.moveToNext();
+			           }
+			       }
+			       c.close();
+			
+		    		
+		    		
+			}
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

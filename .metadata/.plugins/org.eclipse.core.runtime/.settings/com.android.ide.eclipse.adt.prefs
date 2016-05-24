@@ -1,0 +1,9 @@
+com.android.ide.eclipse.adt.fixLegacyEditors=1
+com.android.ide.eclipse.adt.lintSeverities=ProtectedPermissions\=IGNORE
+com.android.ide.eclipse.adt.previews=custom
+com.android.ide.eclipse.adt.refactorIds=always
+com.android.ide.eclipse.adt.sdk=/Users/Anas_Saeed/Documents/Softwares/New/adt-bundle-mac-x86_64-20140702-2/sdk
+com.android.ide.eclipse.adt.xmlEditor=true
+design.structure.flyout.state=1
+design.structure.flyout.width=246
+eclipse.preferences.version=1

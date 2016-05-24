@@ -1,0 +1,15 @@
+package com.anassaeed.locker;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+public class Close  extends BroadcastReceiver {
+
+	@Override
+	public void onReceive(Context context, Intent intent) {
+		// TODO Auto-generated method stub
+		System.exit(0);
+	}
+
+}

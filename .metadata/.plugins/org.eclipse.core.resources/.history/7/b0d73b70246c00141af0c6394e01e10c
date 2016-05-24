@@ -1,0 +1,204 @@
+package com.anassaeed.bluetooth;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Set;
+import java.util.UUID;
+
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
+import android.bluetooth.BluetoothSocket;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.os.ParcelUuid;
+import android.os.Parcelable;
+import android.telephony.TelephonyManager;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+
+@SuppressLint("NewApi") public class MainActivity extends Activity {
+	String tag = "BluetoothApp";
+	 private static final int REQUEST_ENABLE_BT = 0;  
+     private BluetoothSocket microcontrollerSocket = null;
+     private Parcelable[] microcontollerDevice = null;
+	 BluetoothManager bluetoothManager = null;
+	 String microcontrollerName = "Anas's MacBook Pro";
+	 boolean connected = false;
+	 boolean devicePresent = false;
+	 BluetoothAdapter bluetoothAdapter = null;
+	 Set<BluetoothDevice> pairedDevices = null;
+	 InputStream inputStream = null;
+     OutputStream outputStream = null;
+     String uuidOfPhone = "";
+     ParcelUuid[] microcontrollerUUID = null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getUUIDOfPhone();
+        turnOnBluethooth();
+        makeDiscoverable();
+        checkForConnection();
+        if ( connected == false ){
+        	startScanningForDevices();
+        	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	if ( devicePresent == true){
+        		connectToDevice();
+        	}
+        }
+     
+    }
+    public void turnOnBluethooth(){
+    	 bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+         bluetoothAdapter =   bluetoothManager.getAdapter();
+         if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
+             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+             Log.i(tag, "Bluetooth turn on");
+         } else {
+        	 Log.i(tag, "Bluetooth already on");
+         }
+        
+    }
+    public void makeDiscoverable(){
+    			Intent discoverableIntent = new
+    			Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+    			discoverableIntent.putExtra(BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 500);
+    			startActivity(discoverableIntent);
+    			Log.i(tag, "Bluetooth made discoverable");
+    }
+    public void checkForConnection(){
+    	// for seeing if the device is already connected or not    
+        pairedDevices = bluetoothAdapter.getBondedDevices();
+     // If there are paired devices
+     if (pairedDevices.size() > 0) {
+         // Loop through paired devices
+         for (BluetoothDevice device : pairedDevices) {
+        	 if(device.getName().equals(microcontrollerName)){
+        		 connected = true;
+        		 Log.i(tag, "Device is alredy connected");
+        	 }
+         }
+     }
+    }
+    public void startScanningForDevices(){	
+    	 final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+             public void onReceive(Context context, Intent intent) {
+                 String action = intent.getAction();
+                 // When discovery finds a device
+                 if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+                     Log.i(tag, "BroadcastReciever called");
+                     // Get the BluetoothDevice object from the Intent
+                     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                     Log.i(tag, "Bluetooth device name -> " + device.getName());
+                     if ( device.getName().charAt(0) == 'A'){
+                    	microcontrollerUUID  = device.getUuids();
+                    	
+                    	Log.i(tag, microcontrollerUUID.toString());
+                    	devicePresent = true;
+                    	microcontollerDevice  =intent.getParcelableArrayExtra("android.bluetooth.device.extra.UUID");
+                    	
+                    	Log.i(tag, "Found the microcontroller");
+                    	try{
+                    	connectToDevice();
+                    	}catch(Exception e){
+                    		e.printStackTrace();
+                    	}
+                     }
+                 }
+             }
+         };
+         IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+         registerReceiver(mReceiver, filter); // Don't forget to unregister during onDestroy
+         bluetoothAdapter.startDiscovery();
+         Log.i(tag, "Start Scanning for devices");
+    }
+   
+    public void connectToDevice(){
+//    	 try {
+             // MY_UUID is the app's UUID string, also used by the server code
+//             microcontrollerSocket = microcontollerDevice.createRfcommSocketToServiceRecord(microcontrollerUUID[0].getUuid());
+//         } catch (IOException e) {
+//        	 e.printStackTrace();
+//         }
+    	 try{
+    	 bluetoothAdapter.cancelDiscovery();
+    	 }catch(Exception e){
+    		 e.printStackTrace();
+    	 }
+    	 try {
+    		 microcontrollerSocket.connect();
+    		 Log.i(tag, "Connected to microcotroller");
+         } catch (IOException connectException) {
+        	 connectException.printStackTrace();
+        	 try {
+        		 microcontrollerSocket.close();
+        	 } catch (IOException closeException) {
+          		closeException.printStackTrace();
+        	 }
+         }
+    	 
+    }
+    public int readFromStream(boolean infinite){  	
+    	int readMessage = 0;
+    	byte[] buffer = new byte[1024];
+    	while(infinite){
+    		try {
+    			// Read from the InputStream
+    			readMessage = inputStream.read(buffer);
+    			Log.i(tag, "Data read form bluetooth Stream" + readMessage);
+    			Toast.makeText(getBaseContext(), readMessage,Toast.LENGTH_SHORT).show();
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    			break;
+    		}
+    	}
+    	return readMessage;
+    }
+    public void writeToStream(byte[] bytes){
+    	try {
+			outputStream.write(bytes);
+			Log.i(tag, "Data Written to bluetooth Stream"+bytes);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    public void getUUIDOfPhone(){
+    	TelephonyManager tManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+    	uuidOfPhone =  tManager.getDeviceId();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    } 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+}
