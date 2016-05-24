@@ -1,0 +1,101 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+    <LinearLayout 
+        
+    	android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical"
+    	android:paddingBottom="@dimen/activity_vertical_margin"
+    	android:paddingLeft="@dimen/activity_horizontal_margin"
+    	android:paddingRight="@dimen/activity_horizontal_margin"
+    	android:paddingTop="@dimen/activity_vertical_margin"
+    	tools:context="com.anassaeed.lums.MainActivity" >
+
+   		<Button android:id="@+id/btnAone"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-1"/>
+
+   		<Button android:id="@+id/btnAtwo"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-2"/>
+   		
+   		<Button android:id="@+id/btnAthree"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-3"/>
+   		
+   		<Button android:id="@+id/btnAfour"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-4"/>
+   		
+   		<Button android:id="@+id/btnAfive"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-5"/>
+   		
+   		<Button android:id="@+id/btnAsix"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-6"/>
+   		
+   		<Button android:id="@+id/btnAseven"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-7"/>
+   		
+   		<Button android:id="@+id/btnAeight"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-8"/>
+   		
+   		<Button android:id="@+id/btnAnine"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-9"/>
+   		
+   		<Button android:id="@+id/btnAten"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-10"/>
+   		
+   		<Button android:id="@+id/btnAeleven"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-11"/>
+   		
+   		<Button android:id="@+id/btnAtwelve"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-12"/>
+   		
+   		<Button android:id="@+id/btnAthirteen"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-13"/>
+   		
+   		<Button android:id="@+id/btnAfourteen"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-14"/>
+   		
+   		<Button android:id="@+id/btnAfifteen"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-15"/>
+   		
+   		<Button android:id="@+id/btnAsixteen"
+   			android:layout_width="fill_parent"
+   			android:layout_height="wrap_content"
+   			android:text="A-16"/>
+   		
+   		
+   		
+	</LinearLayout>
+</ScrollView>

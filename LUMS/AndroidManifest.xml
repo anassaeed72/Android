@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anassaeed.lums"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="Test" android:noHistory="true"></activity>
+        <activity android:name="Aone" android:noHistory="true"></activity>
+        <activity android:name="Atwo" android:noHistory="true"></activity>
+        <activity android:name="Athree" android:noHistory="true"></activity>
+        <activity android:name="Afour" android:noHistory="true"></activity>
+        <activity android:name="Afive" android:noHistory="true"></activity>
+        <activity android:name="Asix" android:noHistory="true"></activity>
+        <activity android:name="Aseven" android:noHistory="true"></activity>
+        <activity android:name="Aeight" android:noHistory="true"></activity>
+        <activity android:name="Anine" android:noHistory="true"></activity>
+        <activity android:name="Aten" android:noHistory="true"></activity>
+        <activity android:name="Aeleven" android:noHistory="true"></activity>
+        <activity android:name="Atwelve" android:noHistory="true"></activity>
+        <activity android:name="Athirteen" android:noHistory="true"></activity>
+        <activity android:name="Afourteen" android:noHistory="true"></activity>
+        <activity android:name="Afifteen" android:noHistory="true"></activity>
+        <activity android:name="Asixteen" android:noHistory="true"></activity>
+        
+        
+        </application>
+
+</manifest>
