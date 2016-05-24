@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LEDing</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="_0xffff0000">0xFFFF0000</string>
+    <string name="LightsLabel">Lights</string>
+    
+</resources>
