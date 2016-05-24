@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+    <TextView 
+        android:text = "Please select one of the tones below"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
+    <ListView
+              android:id="@+id/listSetTone"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent">
+         </ListView>
+    
+     <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:gravity="center" android:layout_width="match_parent">
+       <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Please swipe to return"/>
+    </LinearLayout> 
+
+</LinearLayout>
