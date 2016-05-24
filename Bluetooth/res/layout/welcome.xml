@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.anassaeed.bluetooth.MainActivity"
+    android:background = "@drawable/bluebackground"
+    >
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 		<TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 
+ <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:textSize="@dimen/font_size"
+        android:textColor="#0000ff"
+
+        android:text="Welcome to Bluetooth App" />
+    
+ <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="3"
+        android:text="Please touch below to configure a few things in the app" />
+ <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+ 
+    <LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:gravity="center" android:layout_width="match_parent">
+        <Button
+			android:id="@+id/btnScanningW"
+			android:text="  Proceed  "
+			android:textColor="#FFFFFF"
+			android:textSize="30sp"
+			android:layout_width="250dp"
+			android:layout_height="60dp"
+			android:background="@drawable/buttonshape"
+			android:shadowColor="#A8A8A8"
+			android:shadowDx="0"
+			android:shadowDy="0"
+			android:shadowRadius="5"
+			/>
+    </LinearLayout> 
+    
+
+</LinearLayout>
