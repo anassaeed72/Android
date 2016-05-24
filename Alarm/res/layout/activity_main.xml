@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.anassaeed.a.MainActivity"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hour"/>
+    
+    <EditText
+    android:id="@+id/hourText"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/hour"
+    android:inputType="number" />
+   
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/minute" />
+    
+    <EditText
+    android:id="@+id/minuteText"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/minute"
+    android:inputType="number" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/second" />
+
+    <EditText
+    android:id="@+id/secondText"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/second"
+    android:inputType="number" />
+    
+    <Button
+        android:id = "@+id/btnSetAlarm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Timer"/>
+</LinearLayout>
