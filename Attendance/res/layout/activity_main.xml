@@ -1,0 +1,64 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- The main content view -->
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+ 		<RelativeLayout 
+ 		     android:layout_width="fill_parent"
+    		android:layout_height="fill_parent"
+    		android:gravity="top" 
+    		android:background="@drawable/background"
+    	>
+			<TextView 
+    	    android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:text = "Please press below to send messages"
+    		android:textColor= "#000000"
+    		android:layout_marginTop = "70dp"
+    		
+    		android:textSize = "20sp"/>
+			
+			<LinearLayout 
+			    android:layout_width="match_parent"
+    			android:layout_height="wrap_content"
+    			android:gravity = "center"
+    			android:layout_marginTop = "140dp"
+    		>
+			    <Button
+				android:id="@+id/btnSend"
+				android:textColor="#FFFFFF"
+				android:textSize="30sp"
+				android:layout_width="300dp"
+				android:layout_height="73dp"
+				android:background="@drawable/buttonshape"
+				android:shadowColor="#0FA819"
+				android:shadowDx="0"
+				android:shadowDy="0"
+				android:shadowRadius="25"
+				android:text="Send Messages" 
+				/>
+			</LinearLayout>
+			
+			
+			
+		
+ 		</RelativeLayout>
+    </FrameLayout>
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/drawer_list"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111"/>
+
+</android.support.v4.widget.DrawerLayout>
+

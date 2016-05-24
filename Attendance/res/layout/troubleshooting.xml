@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.anassaeed.attendance.CustomScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/background"
+	    android:orientation="vertical" >
+	    
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		     android:textColor="#2707A8"
+		        android:textSize="20sp"
+		        android:layout_marginTop="30sp"
+		        android:layout_marginLeft="10sp"
+		        android:layout_marginRight="10sp"
+		    android:text=" The app is made giving considerations to all the problems that can arise. But some of them are out of the scope of the app and may still arise
+	\n 1) File Not Found : Check whether the folder Attendance exists in the file manager and in it the file Attendance.csv file exists
+	\n 2) Generic Faliure: Check whether you have enought account balance to sending the messages
+	\n 3) No records found: Check whether there is data in the Attendace.csv file for sending messages
+	\n Other than that if any error occurs please check if the file is in the correct format and your mobile is properly sending messages
+	\n  Please swipe right to return to main menu"/>
+	</LinearLayout>
+</com.anassaeed.attendance.CustomScrollView >

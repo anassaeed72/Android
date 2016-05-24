@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.anassaeed.attendance.CustomScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/background"
+	    android:orientation="vertical" >
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	         android:textColor="#2707A8"
+		        android:textSize="20sp"
+		        android:layout_marginTop="30sp"
+		        android:layout_marginLeft="10sp"
+		        android:layout_marginRight="10sp"
+	        android:text="The file required is named Attendace.csv and is an excel file saved in comma seperated values format(.csv)
+	\n The format in which the app requires data is the following in coulumns
+	\n\n Name,Class and Section, Contact Number 1, Contact Number 2, Status
+	\n\n For present place 1 for absent write 0
+	\n If two contact numbers enter them in number 1 and 2 cells, if there is only one number enter it in number 1 cell and leave number 2 empty but if there is no numbers leave both empty. If there are more then two 
+	numbers create a new row for that student and enter the numbers.
+	\n In the class and section please write the whole class and section (if it exists) e.g. Class 5 ( for a student in class 5 ) or Class 10 Section Rose ( for a student in class 10 and section Rose)
+	\n Please do not enter any landline numbers only mobile number in the format 03XXXXXXXXX
+	
+	\nIf you want to store the roll number do so in another column after status and when done entering data remove it and then transfer it to the mobile for sending messages.
+	\n Faliure to follow the instruction may lead to faliure in sending correct messages
+	\n  Please swipe right to return to main menu"/>
+	    
+	
+	</LinearLayout>
+
+</com.anassaeed.attendance.CustomScrollView>
+

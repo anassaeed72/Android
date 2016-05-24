@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.anassaeed.attendance.CustomScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+    
+	<LinearLayout
+	     xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/background"
+	    android:orientation="vertical" >
+	 
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textColor="#2707A8"
+	        android:textSize="20sp"
+	        android:layout_marginTop="30sp"
+	        android:layout_marginLeft="10sp"
+	        android:layout_marginRight="10sp"
+	        android:text="	For Using the Attendance Messaging app place a file called Attendance.csv in the Attendance folder(create if not present) in your file manager. Make sure the file is in the right format.
+	 Then upon clicking the send button the messages will be sent. Please note that once clicked the messages sending process can not be stopped unless the app is closed. The progress will be shown in real time 
+	 and upon completion there will be an alert and a tone will be played (which can be changed in the set tone menu).
+	 \n Please swipe right to return to main menu"
+	        />
+	
+	</LinearLayout>
+
+</com.anassaeed.attendance.CustomScrollView>

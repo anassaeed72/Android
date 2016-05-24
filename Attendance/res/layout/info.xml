@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.anassaeed.attendance.CustomScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:background="@drawable/background"
+	    android:orientation="vertical" >
+	    
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	         android:textColor="#2707A8"
+		        android:textSize="20sp"
+		        android:layout_marginTop="30sp"
+		        android:layout_marginLeft="10sp"
+		        android:layout_marginRight="10sp"
+	        android:text="The is an automated Attendance messaging app for messaging the parents that if there children are present or absent. It uses the given file for messaging the parents 
+	to let them know if there children are present or absent. Given the parent's concerns nowadays it is beneficial for the school let them know if there children are safely in the school or not.
+	Hence by using this the school can inform the parents if there children are in shcool or absent 
+	\n  Please swipe right to return to main menu"/>
+	    
+	
+	</LinearLayout>
+</com.anassaeed.attendance.CustomScrollView>
