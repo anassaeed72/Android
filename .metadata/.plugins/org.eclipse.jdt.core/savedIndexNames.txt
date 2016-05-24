@@ -1,1 +1,0 @@
-INDEX VERSION 1.126+/Users/Anas_Saeed/Documents/Programs/Eclipse/.metadata/.plugins/org.eclipse.jdt.core

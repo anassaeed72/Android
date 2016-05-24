@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;ContactsSMS/res/drawable-mdpi/DSC_0359.jpg&apos; to &apos;back.jpg&apos;" description="Rename resource &apos;DSC_0359.jpg&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/drawable-mdpi/DSC_0359.jpg" name="back.jpg" stamp="1433008754662" updateReferences="true"/>
-</session>

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Convert local variable &apos;com.anassaeed.locker.Screen.onReceive().caller&apos; in &apos;com.anassaeed.locker.Screen.onReceive()&apos; to field&#x0A;- Original project: &apos;Locker&apos;&#x0A;- Original element: &apos;com.anassaeed.locker.Screen.onReceive().caller&apos;&#x0A;- Field name: &apos;caller&apos;&#x0A;- Initialize field in method&#x0A;- Declared visibility: &apos;private&apos;" description="Convert local variable &apos;caller&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;com.anassaeed.locker{Screen.java" name="caller" selection="1248 27" stamp="1410192426174" static="false" version="1.0" visibility="2"/>
-</session>
